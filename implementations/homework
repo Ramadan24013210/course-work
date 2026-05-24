@@ -1,1 +1,266 @@
+openapi: 3.0.0
+info:
+  title: Reminder & Event Calendar System API
+  version: 1.0.0
+  description: API documentation for a system that manages events, reminders, categories and users with authentication.
 
+servers:
+  - url: https://localhost:5001/api
+
+tags:
+  - name: Auth
+  - name: Users
+  - name: Events
+  - name: Reminders
+  - name: Categories
+
+paths:
+
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Register new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, email, password]
+              properties:
+                username:
+                  type: string
+                  maxLength: 50
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 6
+      responses:
+        "200":
+          description: User registered successfully
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login user and get JWT token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: JWT token returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+
+  /users:
+    get:
+      tags: [Users]
+      summary: Get all users (admin only)
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 10
+        - name: search
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of users
+
+  /events:
+    get:
+      tags: [Events]
+      summary: Get all events with filtering, sorting and pagination
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: title
+          in: query
+          schema:
+            type: string
+            maxLength: 100
+        - name: priority
+          in: query
+          schema:
+            type: integer
+        - name: date
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        "200":
+          description: List of events
+
+    post:
+      tags: [Events]
+      summary: Create new event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, eventDate, userId]
+              properties:
+                title:
+                  type: string
+                  maxLength: 100
+                description:
+                  type: string
+                  maxLength: 500
+                eventDate:
+                  type: string
+                  format: date-time
+                priority:
+                  type: integer
+                  minimum: 1
+                  maximum: 5
+                userId:
+                  type: integer
+      responses:
+        "200":
+          description: Event created
+
+  /events/{id}:
+    get:
+      tags: [Events]
+      summary: Get event by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Event details
+
+    put:
+      tags: [Events]
+      summary: Update event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Event updated
+
+    delete:
+      tags: [Events]
+      summary: Delete event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Event deleted
+
+  /reminders:
+    post:
+      tags: [Reminders]
+      summary: Create reminder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [eventId, reminderTime]
+              properties:
+                eventId:
+                  type: integer
+                reminderTime:
+                  type: string
+                  format: date-time
+                message:
+                  type: string
+                  maxLength: 200
+      responses:
+        "200":
+          description: Reminder created
+
+  /categories:
+    get:
+      tags: [Categories]
+      summary: Get all categories
+      responses:
+        "200":
+          description: List of categories
+
+    post:
+      tags: [Categories]
+      summary: Create category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, userId]
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                color:
+                  type: string
+                description:
+                  type: string
+                  maxLength: 200
+                userId:
+                  type: integer
+      responses:
+        "200":
+          description: Category created
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
