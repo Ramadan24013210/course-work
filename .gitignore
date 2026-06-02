@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/implementations/ReminderCalendarSystem/.vs
+/implementations/ReminderCalendarSystem/ReminderCalendar/bin/Debug/net8.0

@@ -1,0 +1,212 @@
+[
+  {
+    "ContainingType": "ReminderCalendar.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.DTOs.Auth.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.DTOs.Auth.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.CategoriesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.CategoriesController",
+    "Method": "Create",
+    "RelativePath": "api/Categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.Dtos.Categories.CategoryCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.CategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/Categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.EventsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Events",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.EventsController",
+    "Method": "Create",
+    "RelativePath": "api/Events",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.Dtos.Events.EventCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.EventsController",
+    "Method": "Update",
+    "RelativePath": "api/Events/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.Dtos.Events.EventCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.EventsController",
+    "Method": "Delete",
+    "RelativePath": "api/Events/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.RemindersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Reminders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.RemindersController",
+    "Method": "Create",
+    "RelativePath": "api/Reminders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.Dtos.Reminders.ReminderCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.RemindersController",
+    "Method": "Update",
+    "RelativePath": "api/Reminders/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ReminderCalendar.Dtos.Reminders.ReminderCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.RemindersController",
+    "Method": "Delete",
+    "RelativePath": "api/Reminders/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ReminderCalendar.Controllers.TestController",
+    "Method": "Get",
+    "RelativePath": "api/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
